@@ -1,6 +1,6 @@
 This repository provides pipelines that implement the computational analysis for the following study:
 
-Yehudai, Tehila, Gaik Tamazian, Lakshmi Narasaiah Uppalapati, Sandra Vols, Saranya Sridhar, Guadalupe Cortés, Thorsten U. Vogel, Anna Roitburd-Berman, and Jonathan M. Gershoni.
+Yehudai Tehila, Gaik Tamazian, Lakshminarasaiah Uppalapati, Sandra Völs, Saranya Sridhar, Guadalupe Cortés, Thorsten U. Vogel, Anna Roitburd-Berman, and Jonathan M. Gershoni.
 Serum-antibody profiling of H3N2-infected ferrets using a combinatorial phage-display random peptide library.(in preparation)
 
 The pipelines reimplement and extend the computational analysis described in the following paper:
@@ -9,27 +9,23 @@ Ashkenazy, Haim, Oren Avram, Arie Ryvkin, Anna Roitburd-Berman, Yael Weiss-Ottol
 “Motifier: An IgOme Profiler Based on Peptide Motifs Using Machine Learning.”
 [Journal of Molecular Biology 433, no. 15 (2021): 167071](https://doi.org/10.1016/j.jmb.2021.167071)
 
-# Repository structure
-motifier-experiments/
+### Repository structure
+```motifier-experiments/
 ├── input/
 │   └── groups/        # Sample-to-barcode mapping files (sample2BC)
 ├── scripts/           # Jupyter notebooks for motif pruning and PCA analysis
 └── Snakefiles/        # Snakemake workflows
+```
 
-
-The Snakefiles/ directory contains three Snakemake workflows corresponding to:
+The `Snakefiles/` directory contains three Snakemake workflows corresponding to:
 
 Initial motif selection (400 motifs)
-
 Manual motif pruning
-
 Principal component analysis (PCA)
 
-The scripts/ directory contains Jupyter notebooks documenting the manual pruning process and PCA loadings analysis.
+The `scripts/` directory contains Jupyter notebooks documenting the manual pruning process and PCA loadings analysis.
 
-Raw FASTQ files are not included in this repository.
-
-The `input/` directories contain files for demultiplexing sequenced reads, but do *not* contain the read FASTQ files. Users should download and copy the FASTQ files to the directories before running the pipelines (see (need to add a link to NCBI))
+The `input/` directories contain files for demultiplexing sequenced reads, but do *not* contain the read FASTQ files. Users should download and copy the FASTQ files to the directories before running the pipelines (need to add a link to NCBI))
 
 After successful execution of the pipelines, output files will be written to directories `data/` and `output/` in the pipeline directories.
 
@@ -43,7 +39,7 @@ We recommend establishing a separate computational environment for running the p
 
 ## Input FASTQ files
 
-Input FASTQ files for the pipeline are available in the [???). The files should be downloaded to the `input/` directory in the pipeline directories. If only one pipeline is to be launched, then it is sufficient to download only the FASTQ file for that pipeline. Note that the FASTQ files should be copied in their original (gzip-compressed) form and should *not* be uncompressed.
+Input FASTQ files for the pipeline are available in the ???). The files should be downloaded to the `input/` directory in the pipeline directories. Note that the FASTQ files should be copied in their original (gzip-compressed) form and should *not* be uncompressed.
 
 ## Establishing environment
 
