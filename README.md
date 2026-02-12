@@ -113,12 +113,12 @@ snakemake --cores 1 --dry-run
 # Running the pipeline
 
 To run the pipeline, activate the computational environment, change the current directory to the pipeline directory, and launch Snakemake with the specified number of cores to be allocated to the pipeline routines.
-
+Since multiple Snakefiles are provided (corresponding to motif selection, manual pruning, and PCA), the -s flag must be used to indicate which workflow to execute.
 ```
 conda activate motifier-legacy
 cd
 cd motifier-pipeline/exp12
-snakemake --cores all
+snakemake -s Snakefiles/FILE_NAME --cores all
 ```
 
 Specifying `--cores all` will use all available cores of a machine. The exact number can be specified instead of `all`.
