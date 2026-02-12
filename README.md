@@ -5,7 +5,7 @@ Serum-antibody profiling of H3N2-infected ferrets using a combinatorial phage-di
 
 The pipelines reimplement and extend the computational analysis described in the following paper:
 
-Ashkenazy, Haim, Oren Avram, Arie Ryvkin, Anna Roitburd-Berman, Yael Weiss-Ottolenghi, Smadar Hada-Neeman, Jonathan M. Gershoni, and Tal Pupko.
+Ashkenazy Haim, Oren Avram, Arie Ryvkin, Anna Roitburd-Berman, Yael Weiss-Ottolenghi, Smadar Hada-Neeman, Jonathan M. Gershoni, and Tal Pupko.
 “Motifier: An IgOme Profiler Based on Peptide Motifs Using Machine Learning.”
 [Journal of Molecular Biology 433, no. 15 (2021): 167071](https://doi.org/10.1016/j.jmb.2021.167071)
 
