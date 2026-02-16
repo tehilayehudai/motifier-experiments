@@ -1,0 +1,45 @@
+import pandas as pd
+
+BARCODES_PATH = "input/barcodes/EXP_DP_12.txt"
+SAMPLE_LABELS = pd.read_csv(BARCODES_PATH, delimiter="\t", names=["Barcode", "Label"])[
+    "Label"
+]
+LANES = [f"L{k+1:03d}" for k in range(4)]
+
+
+rule all:
+    input:
+        expand("input/peptides/{label}.faa", label=SAMPLE_LABELS),
+
+
+rule filter_reads:
+    input:
+        fastq=expand("input/fastq/EXP_DP_12_{lane}.fastq.gz", lane=LANES),
+        barcodes=BARCODES_PATH,
+    output:
+        temp(expand("input/peptides_raw/{label}.faa", label=SAMPLE_LABELS)),
+    params:
+        left_cs="AGGCGGCCAACGTGGC",
+        right_cs="GCCGCTGGGGCCGACC",
+        max_mismatches=1,
+        out_dir="input/peptides_raw",
+        max_len=12,
+    benchmark:
+        "benchmarks/filter_reads.txt"
+    shell:
+        "motifier legacy filter-reads --left_construct {params.left_cs} "
+        "--right_construct {params.right_cs} "
+        "--maximum_length_required {params.max_len} "
+        "--max_mismatches_allowed {params.max_mismatches} "
+        "{input.fastq} {input.barcodes} {params.out_dir}"
+
+
+rule collapse_duplicates:
+    input:
+        "input/peptides_raw/{label}.faa",
+    output:
+        dedup="input/peptides/no_rpm/{label}.faa",
+        rpm="input/peptides/{label}.faa",
+    shell:
+        "motifier legacy collapse-duplicates --rpm "
+        "--rpm-factor-file {output.rpm} {input} > {output.dedup}"
