@@ -1,15 +1,9 @@
 ACGTACGT	Sanofi_ferret_naive_A1
 TGCATGCA	Sanofi_ferret_naive_A2
 CAACGTTG	Sanofi_ferret_naive_A3
-GTTGCAAC	Sanofi_ferret_texas_B1
-ATCACTGG	Sanofi_ferret_texas_B2
-TCCGAATG	Sanofi_ferret_texas_B3
 AATGTCCG	Sanofi_ferret_naive_C1
 TGATCCAG	Sanofi_ferret_naive_C2
 GACCTAGT	Sanofi_ferret_naive_C3
-GCAACGTT	Sanofi_ferret_texas_D1
-CTGAGACT	Sanofi_ferret_texas_D2
-CGTCAGAT	Sanofi_ferret_texas_D3
 GAGTCTCA	Osorno_1a
 CCATTAGG	Osorno_1b
 AGTCCATG	Osorno_1c
