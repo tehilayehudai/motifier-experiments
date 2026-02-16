@@ -12,22 +12,25 @@ Ashkenazy Haim, Oren Avram, Arie Ryvkin, Anna Roitburd-Berman, Yael Weiss-Ottole
 ### Repository structure
 ```motifier-experiments/
 ├── input/
-│   └── groups/        # Sample-to-barcode mapping files (sample2BC)
+|   └── barcodes/      # Barcode to SAmple file
+│   └── groups/        # Sample-to-Bological condition mapping files (sample2BC)
 ├── scripts/           # Jupyter notebooks for motif pruning and PCA analysis
 └── Snakefiles/        # Snakemake workflows
 ```
 
-The `Snakefiles/` directory contains three Snakemake workflows corresponding to:
+The `Snakefiles/` directory contains four Snakemake workflows corresponding to:
 
+Reads filtration stage
 Initial motif selection (400 motifs)
-Manual motif pruning
-Principal component analysis (PCA)
+Manual motif pruning (133 motifs)
+PCA loadings analysis (40 motifs)
 
 The `scripts/` directory contains Jupyter notebooks documenting the manual pruning process and PCA loadings analysis.
 
-The `input/` directories contain files for demultiplexing sequenced reads, but do *not* contain the read FASTQ files. Users should download and copy the FASTQ files to the directories before running the pipelines (need to add a link to NCBI))
+The `input/` directories contain files for demultiplexing sequenced reads, but do *not* contain the read FASTQ files. Users should download and copy the [FASTQ files](https://www.ncbi.nlm.nih.gov/biosample/?term=SAMN55342667) to the `input/fastq/` before running the pipelines 
 
-After successful execution of the pipelines, output files will be written to directories `data/` and `output/` in the pipeline directories.
+After successful execution of the pipelines, output files will be written to directories 
+`data/` and `output/` in the pipeline directories.
 
 # Installation
 
@@ -39,7 +42,7 @@ We recommend establishing a separate computational environment for running the p
 
 ## Input FASTQ files
 
-Input FASTQ files for the pipeline are available in the ???). The files should be downloaded to the `input/` directory in the pipeline directories. Note that the FASTQ files should be copied in their original (gzip-compressed) form and should *not* be uncompressed.
+Input FASTQ files for the pipeline are available in the [NCBI](https://www.ncbi.nlm.nih.gov/biosample/?term=SAMN55342667). The files should be downloaded to the `input/fastq` directory in the pipeline directories. Note that the FASTQ files should be copied in their original (gzip-compressed) form and should *not* be uncompressed.
 
 ## Establishing environment
 
@@ -113,7 +116,7 @@ snakemake --cores 1 --dry-run
 # Running the pipeline
 
 To run the pipeline, activate the computational environment, change the current directory to the pipeline directory, and launch Snakemake with the specified number of cores to be allocated to the pipeline routines.
-Since multiple Snakefiles are provided (corresponding to motif selection, manual pruning, and PCA), the -s flag must be used to indicate which workflow to execute.
+Since multiple Snakefiles are provided (corresponding to reads filtration, motif selection, manual pruning, and PCA), the -s flag must be used to indicate which workflow to execute.
 ```
 conda activate motifier-legacy
 cd
