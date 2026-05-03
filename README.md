@@ -2,7 +2,7 @@ This repository provides pipelines that implement the computational analysis for
 
 Yehudai Tehila, Gaik Tamazian, Lakshminarasaiah Uppalapati, Sandra Völs, Saranya Sridhar, Guadalupe Cortés, Thorsten U. Vogel, Anna Roitburd-Berman, and Jonathan M. Gershoni.
 Serum-antibody profiling of H3N2-infected ferrets using a combinatorial phage-display random peptide library.
-[https://authors.elsevier.com/a/1n0-D54HFdBNY](https://doi.org/10.1016/j.jmb.2026.169816)
+[https://doi.org/10.1016/j.jmb.2026.169816](https://doi.org/10.1016/j.jmb.2026.169816)
 
 The pipelines reimplement and extend the computational analysis described in the following paper:
 
